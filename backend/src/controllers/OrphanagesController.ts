@@ -52,7 +52,7 @@ export default {
       about,
       instructions,
       opening_hours,
-      open_on_weekends,
+      open_on_weekends: open_on_weekends === 'true',
       images
     };
     
@@ -63,7 +63,7 @@ export default {
       about: Yup.string().required('Sobre Obrigatório').max(300),
       instructions: Yup.string().required('Instruções Obrigatórias'),
       opening_hours: Yup.string().required('Hora de abertura Obrigatória'),
-      open_on_weekends: Yup.boolean().required('Informa se o orfanato é aberto aso fins de semana'),
+      open_on_weekends: Yup.boolean().required('Informa se o orfanato é aberto aos fins de semana'),
       images: Yup.array(
         Yup.object().shape({
           path: Yup.string().required()
