@@ -9,12 +9,19 @@ import './database/connection';
 import routes from './routes';
 import errorHandler from './errors/handler';
 
+// configura o cors para poder ser acessado por qualquer site
+var corsOptions = {
+  origin: '*',
+  optionsSuccessStatus: 200
+}
+
 const app = express();
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(routes);
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
-app.use(cors);
 
 app.use(errorHandler);
 
